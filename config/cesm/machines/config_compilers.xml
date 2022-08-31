@@ -101,7 +101,7 @@ using a fortran linker.
     <base> -s real64 </base>
   </FC_AUTO_R8>
   <FFLAGS>
-    <base> -f free -N 255  -h byteswapio -x dir </base>
+    <base> -N 255  -h byteswapio -x dir </base>
     <append compile_threaded="FALSE"> -h noomp </append>
     <append DEBUG="TRUE"> -g -O0 -K trap=fp  -m1 </append>
     <append DEBUG="FALSE"> -O2,ipa2 -em </append>
@@ -109,6 +109,12 @@ using a fortran linker.
   <FFLAGS_NOOPT>
     <base> -O1,fp2,ipa0,scalar0,vector0 </base>
   </FFLAGS_NOOPT>
+  <FIXEDFLAGS>
+    <base>  -f fixed </base>
+  </FIXEDFLAGS>
+  <FREEFLAGS>
+    <base> -f free </base>
+  </FREEFLAGS>
   <HAS_F2008_CONTIGUOUS>TRUE</HAS_F2008_CONTIGUOUS>
   <LDFLAGS>
     <base> -Wl,--allow-multiple-definition -h byteswapio </base>
