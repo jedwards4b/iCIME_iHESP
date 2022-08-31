@@ -261,14 +261,14 @@ using a fortran linker.
   <SCXX> icpc </SCXX>
   <SFC> ifort </SFC>
   <SLIBS>
-    <append MPILIB="mpich"> -mkl=cluster </append>
-    <append MPILIB="mpich2"> -mkl=cluster </append>
-    <append MPILIB="mvapich"> -mkl=cluster </append>
-    <append MPILIB="mvapich2"> -mkl=cluster </append>
-    <append MPILIB="mpt"> -mkl=cluster </append>
-    <append MPILIB="openmpi"> -mkl=cluster </append>
-    <append MPILIB="impi"> -mkl=cluster </append>
-    <append MPILIB="mpi-serial"> -mkl </append>
+    <append MPILIB="mpich"> -qmkl=cluster </append>
+    <append MPILIB="mpich2"> -qmkl=cluster </append>
+    <append MPILIB="mvapich"> -qmkl=cluster </append>
+    <append MPILIB="mvapich2"> -qmkl=cluster </append>
+    <append MPILIB="mpt"> -qmkl=cluster </append>
+    <append MPILIB="openmpi"> -qmkl=cluster </append>
+    <append MPILIB="impi"> -qmkl=cluster </append>
+    <append MPILIB="mpi-serial"> -qmkl </append>
   </SLIBS>
   <SUPPORTS_CXX>TRUE</SUPPORTS_CXX>
 </compiler>
@@ -883,6 +883,12 @@ using a fortran linker.
   <SLIBS>
     <append>-L$NETCDF_PATH/lib -lnetcdff -lnetcdf</append>
   </SLIBS>
+</compiler>
+
+<compiler MACH="gust" COMPILER="cray">
+  <FFLAGS>
+    <append> -eg </append>
+  </FFLAGS>
 </compiler>
 
 <compiler MACH="hobart">

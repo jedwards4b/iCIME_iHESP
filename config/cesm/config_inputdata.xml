@@ -7,11 +7,14 @@
   <!-- inputdata_chksum.dat is found on the server in the directory above inputdata -->
   <!-- it will be searched for filename and chksum of each downloaded file.  -->
   <!-- see the file ftp://ftp.cgd.ucar.edu/cesm/inputdata_chksum.dat for proper format. -->
-  <server>
-    <protocol>svn</protocol>
-    <address>https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata</address>
-  </server>
 
+  <server>
+    <protocol>wget</protocol>
+    <address>ftp://ftp.cgd.ucar.edu/cesm/inputdata</address>
+    <user>anonymous</user>
+    <password>user@example.edu</password> 
+    <checksum>../inputdata_checksum.dat</checksum>
+  </server>
 
   <server>
     <comment>grid ftp requires the globus-url-copy tool on the client side </comment>
@@ -30,12 +33,8 @@
   </server>
 
   <server>
-    <protocol>wget</protocol>
-    <address>ftp://ftp.cgd.ucar.edu/cesm/inputdata</address>
-    <user>anonymous</user>
-    <password>user@example.edu</password>
-    <checksum>../inputdata_checksum.dat</checksum>
+    <protocol>svn</protocol>
+    <address>https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata</address>
   </server>
-
 
 </inputdata>
