@@ -100,6 +100,9 @@ def copy(case, suffix):
         num_copied += len(test_hists)
         for test_hist in test_hists:
             new_file = "{}.{}".format(test_hist, suffix)
+            # do not test the pop.h.once file
+            if 'pop.h.once' in new_file:
+                continue
             if os.path.exists(new_file):
                 os.remove(new_file)
 
