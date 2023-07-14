@@ -33,7 +33,8 @@ module water_isotopes
                            SHR_CONST_VSMOW_18O, &
                            SHR_CONST_VSMOW_D , &
                            SHR_CONST_VSMOW_H 
-
+  use, intrinsic :: iso_fortran_env, only: output_unit
+  use shr_log_mod, only: shr_log_unit
   implicit none
 
   private
@@ -196,7 +197,7 @@ contains
 ! Purpose: Initialize module internal data arrays
 ! Author: David Noone <dcn@caltech.edu> - Sun Jun 29 20:29:26 MDT 2003
 !-----------------------------------------------------------------------
-    write(6,*) 'WISO_INIT: Initializing water isotopes.'
+    if(shr_log_unit .ne. output_unit) write(shr_log_unit,*) 'WISO_INIT: Initializing water isotopes.'
     return
   end subroutine wiso_init
 

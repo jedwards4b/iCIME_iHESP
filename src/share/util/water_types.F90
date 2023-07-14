@@ -15,7 +15,8 @@ module water_types
   ! Author: Chuck Bardeen (2/4/2012)
   !-----------------------------------------------------------------------
   use shr_kind_mod,   only: r8 => shr_kind_r8
-
+  use shr_log_mod, only : shr_log_unit
+  use, intrinsic :: iso_fortran_env, only: output_unit  
   implicit none
 
   private
@@ -53,7 +54,6 @@ module water_types
   character(len=2), dimension(pwtype), parameter, public :: & ! suffix names
        wtype_suffix     =   (/ '_v', '_l', '_i', '_R', '_S', '_r', '_s' /)
 
-
   !
   !-----------------------------------------------------------------------
 contains
@@ -63,7 +63,7 @@ contains
     !-----------------------------------------------------------------------
     ! Purpose: Initialize module internal data arrays
     !-----------------------------------------------------------------------
-    write(6,*) 'WTYPE_INIT: Initializing water types.'
+    if(shr_log_unit /= output_unit) write(shr_log_unit,*) 'WTYPE_INIT: Initializing water types.'
     return
   end subroutine wtype_init
 
